@@ -13,6 +13,34 @@ void arr_random(int a[100][100], int n, int m){
         }
     } 
 }
+<<<<<<< HEAD
+=======
+void bubble_sort(int a[100][100], int n, int m){
+    // convert 2d array to 1d array
+    arr_random(a, n, m);
+    int k = 0;
+    int temp[10000];
+    for (int i = 0; i < n; i++){
+        for (int j = 0; j < m; j++){
+            temp[k++] = a[i][j];
+        }
+    }
+    // bubble sort 1d array
+    for (int i = 0; i < k - 1; i++){
+        for (int j = 0; j < k - i - 1; j++){
+            if (temp[j] > temp[j + 1]){
+                swap(temp[j], temp[j + 1]);
+            }
+        }
+    }
+    //convert bubble sort 1d array to 2d array
+    for (int i = 0; i < n; i++){
+        for (int j = 0; j < m; j++){
+            a[i][j] = temp[k++];
+        }
+    }
+}
+>>>>>>> a8009ec53428ff8fad16172c0a50f9aad29fb6ba
 int maxval = INT_MIN; // max number
 int minval = INT_MAX; // min number
 int main(){
@@ -23,6 +51,7 @@ int main(){
     cout << "----------------------" << endl;
     cout << "Enter the number m = ";
     cin >> m;
+<<<<<<< HEAD
     arr_random(a, n, m); // random 2d array
     //bubble sort
     int k = 0;
@@ -48,6 +77,9 @@ int main(){
             a[i][j] = temp[k++];
         }
     }
+=======
+    bubble_sort(a, n, m); // bubble sort 2d array
+>>>>>>> a8009ec53428ff8fad16172c0a50f9aad29fb6ba
     // output array
     cout <<"-----------------------------" << endl;
     cout << "The Output Of A Random 2D Array has elements [i][j]: " << endl;
@@ -122,10 +154,13 @@ int main(){
     cout << "---------------------------" << endl;
     cout << "Min lvalue number " << minval << endl;
     cout << "---------------------------" << endl;
+<<<<<<< HEAD
     //total max and min
     cout << endl;
     cout << "----------------------------" << endl;
     cout << "Total maxval and minval " << maxval + minval << endl;
     cout << "----------------------------" << endl;
+=======
+>>>>>>> a8009ec53428ff8fad16172c0a50f9aad29fb6ba
 
 }
