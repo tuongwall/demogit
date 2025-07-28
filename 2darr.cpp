@@ -131,5 +131,23 @@ int main(){
     cout << "----------------------------" << endl;
     cout << "Total maxval and minval " << maxval + minval << endl;
     cout << "----------------------------" << endl;
+    // even and odd
+    cout << "Count The Number Of Even And Odd" << endl;
+    cout << "-----------------------------" << endl;
+    int even_number = 0;
+    int odd_number = 0;
+    for (int i = 0; i < n; i++){
+        for (int j = 0; j < m; j++){
+            if (a[i][j] % 2 == 0) {
+                even_number++;
+            }
+            else{
+                odd_number++;
+            }
+        }
+    }
+    cout << "Number Of Even Numbers " << even_number << endl;
+    cout << "------------------------" << endl;
+    cout << "Number Of Odd Numbers " << odd_number << endl;
 
 }
