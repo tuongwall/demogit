@@ -15,35 +15,11 @@ void arr_random(int a[100][100], int n, int m){
 }
 <<<<<<< HEAD
 =======
-void bubble_sort(int a[100][100], int n, int m){
-    // convert 2d array to 1d array
-    arr_random(a, n, m);
-    int k = 0;
-    int temp[10000];
-    for (int i = 0; i < n; i++){
-        for (int j = 0; j < m; j++){
-            temp[k++] = a[i][j];
-        }
-    }
-    // bubble sort 1d array
-    for (int i = 0; i < k - 1; i++){
-        for (int j = 0; j < k - i - 1; j++){
-            if (temp[j] > temp[j + 1]){
-                swap(temp[j], temp[j + 1]);
-            }
-        }
-    }
-    //convert bubble sort 1d array to 2d array
-    for (int i = 0; i < n; i++){
-        for (int j = 0; j < m; j++){
-            a[i][j] = temp[k++];
-        }
-    }
-}
+
 >>>>>>> a8009ec53428ff8fad16172c0a50f9aad29fb6ba
 int maxval = INT_MIN; // max number
 int minval = INT_MAX; // min number
-int main(){
+int main(){ 
     int n, m, a[100][100];
     // input number
     cout << "Enter the number n = ";
