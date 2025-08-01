@@ -2,6 +2,8 @@
 #include <random>
 #include <climits>
 #include <cstring>
+#include <map>
+#include <cmath>
 using namespace std;
 void arr_random(int a[100][100], int n, int m){
     random_device rd;
@@ -13,7 +15,15 @@ void arr_random(int a[100][100], int n, int m){
         }
     } 
 }
-
+//function check prime number
+bool check(int n){
+    for (int i = 2; i < sqrt(n); i++){
+        if(n % i == 0){
+            return false;
+        }
+    }
+    return true;
+}
 int maxval = INT_MIN; // max number
 int minval = INT_MAX; // min number
 
@@ -110,7 +120,7 @@ int main(){
     // max and min array
     cout << endl;
     cout << "---------------------------" << endl;
-    cout << "The Maxval And Minval Number In The 2D Array" << endl;
+    cout << "The Maxval And Minval In The 2D Array" << endl;
     cout << "---------------------------" << endl;
     for (int i = 0; i < n; i++){
         for (int j = 0; j < m; j++){
@@ -131,7 +141,9 @@ int main(){
     cout << "----------------------------" << endl;
     cout << "Total maxval and minval " << maxval + minval << endl;
     cout << "----------------------------" << endl;
+    cout << endl;
     // even and odd
+    cout << "-----------------------------" << endl;
     cout << "Count The Number Of Even And Odd" << endl;
     cout << "-----------------------------" << endl;
     int even_number = 0;
@@ -146,8 +158,23 @@ int main(){
             }
         }
     }
-    cout << "Number Of Even Numbers " << even_number << endl;
+    cout << "Number Of Even Numbers " << even_number << "  Number" << endl;
     cout << "------------------------" << endl;
-    cout << "Number Of Odd Numbers " << odd_number << endl;
-
+    cout << "Number Of Odd Numbers " << odd_number << " Number" << endl;
+    cout << "----------------------------" << endl;
+    cout << endl;
+    cout << "----------------------------" << endl;
+    //check prime numbers 
+    cout << "Prime Number" << endl;
+     cout << "----------------------------" << endl;
+    map <int, bool> mp;
+    for (int i = 0; i < n; i++){
+        for (int j = 0; j < m; j++){
+            if (check(a[i][j]) && mp[a[i][j]] == false){
+                cout << a[i][j] << " ";
+                mp[a[i][j]] = true;
+            }
+        }
+        cout << endl;
+    }
 }
