@@ -28,6 +28,27 @@ bool check(int n){
     }
     return true;
 }
+void rotateMatrix(int a[100][100], int n, int m){
+    for (int i = 0; i < m ; i++){
+        for (int j = 0; j < n + 1; j++){
+            swap(a[i][j], a[j][i] );
+        }
+        cout << endl;
+    }
+    for (int i = 0; i < n; i++){
+        for (int j = 0; j < m / 2; j++){
+            swap(a[i][j], a[i][n - 1 - j]);
+        }
+    }
+}
+void print_matrix(int a[100][100], int n, int m){
+    for (int i = 0; i < n; i++){
+        for (int j = 0; j < m; j++){
+            cout << setw(4) << a[i][j];
+        }
+        cout << endl;
+    }
+}
 int maxval = INT_MIN; // max number
 int minval = INT_MAX; // min number
 
@@ -85,6 +106,11 @@ int main(){
         }
         cout << endl;
     }
+    cout << "--------------------------\n";
+    cout << " \n";
+    cout << "--------------------------\n";
+    rotateMatrix(a, n, m);
+    print_matrix(a, n, m);
     //total array 
     cout << endl;
     cout << "---------------------------\n";
@@ -227,5 +253,6 @@ int main(){
     }
     cout << "total diagonal array " << counts << endl;
     cout << "----------------------------------\n";
-    
+    cout << endl;
+    cout << "-----------------------------\n";
 }
