@@ -209,6 +209,7 @@ int main(){
         }
         cout << endl;
     }
+    cout << "----------------------------------\n";
     cout << "There is a total number of primes " << count << endl; 
     cout << "----------------------------------\n";
     // the diagonal of the 2d array
@@ -217,5 +218,14 @@ int main(){
         cout << "[ " << i << " ]" << "[ " << i << " ]" << " = " << a[i][i] << endl; 
     }
     cout << "---------------------------------\n";
+    cout << endl;
+    // total diagonal array
+    cout << "total diagonal array\n";
+    int counts = 0;
+    for (int i = 0; i < n && i < m; i++){
+        counts += a[i][i];
+    }
+    cout << "total diagonal array " << counts << endl;
+    cout << "----------------------------------\n";
     
 }
