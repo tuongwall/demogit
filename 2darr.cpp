@@ -21,23 +21,28 @@ bool check(int n){
     if (n < 2){
         return false;
     }
-    for (int i = 2; i < sqrt(n); i++){
+    for (int i = 2; i <= sqrt(n); i++){
         if(n % i == 0){
             return false;
         }
     }
     return true;
 }
-void rotateMatrix(int a[100][100], int n, int m){
-    for (int i = 0; i < m ; i++){
-        for (int j = 0; j < n + 1; j++){
-            swap(a[i][j], a[j][i] );
+void rotateMatrix(int a[100][100], int &n, int &m){
+    int temp[100][100];
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < m; j++) {
+            temp[j][n - 1 - i] = a[i][j];
         }
-        cout << endl;
     }
-    for (int i = 0; i < n; i++){
-        for (int j = 0; j < m / 2; j++){
-            swap(a[i][j], a[i][n - 1 - j]);
+    // Swap n and m for the rotated matrix
+    int t = n;
+    n = m;
+    m = t;
+    // Copy back to original array
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < m; j++) {
+            a[i][j] = temp[i][j];
         }
     }
 }
@@ -52,6 +57,32 @@ void print_matrix(int a[100][100], int n, int m){
 int maxval = INT_MIN; // max number
 int minval = INT_MAX; // min number
 
+/**
+ * @brief Main function to perform various operations on a randomly generated 2D array.
+ *
+ * This function performs the following steps:
+ * 1. Prompts the user to input the dimensions (n x m) of the 2D array.
+ * 2. Generates a random 2D array of size n x m.
+ * 3. Sorts the elements of the array in ascending order using bubble sort.
+ * 4. Outputs the sorted 2D array in both detailed and matrix formats.
+ * 5. Rotates the matrix and prints the rotated result.
+ * 6. Calculates and displays:
+ *    - The total sum of all elements in the array.
+ *    - The sum of each row and each column.
+ *    - The average of each row and each column.
+ *    - The maximum and minimum values in the array, and their sum.
+ *    - The count of even and odd numbers in the array.
+ *    - All unique prime numbers present in the array and their count.
+ *    - The main diagonal elements and their sum.
+ *
+ * Note: This function assumes the existence of helper functions:
+ * - arr_random(int a[][100], int n, int m): Fills the array with random values.
+ * - rotateMatrix(int a[][100], int n, int m): Rotates the matrix.
+ * - print_matrix(int a[][100], int n, int m): Prints the matrix.
+ * - check(int x): Checks if a number is prime.
+ *
+ * The function uses standard input/output for interaction and reporting results.
+ */
 int main(){
     int n, m, a[100][100];
     // input number
@@ -170,7 +201,7 @@ int main(){
         for (int i = 0; i < n; i++){
             col_ave += a[i][j];
         }
-        double col_average = (double)col_ave;
+        double col_average = (double)col_ave / n;
         cout << "Average column array " << col_average << endl;
     }
     // max and min array
